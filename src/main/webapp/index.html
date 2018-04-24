@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
+        <script src="./assest/js/index.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="./assest/css/myStyle.css">
+        <!--<link rel="stylesheet" href="./assest/css/rangeBar.css">-->
+       <!-- <style>
+            .img_rotate {
+                 transform:rotate( 7deg );
+                -ms-transform:rotate( 7deg ); 	/* IE 9 */
+                -moz-transform:rotate( 7deg ); 	/* Firefox */
+                -webkit-transform:rotate( 7deg ); /* Safari 和 Chrome */
+                -o-transform:rotate( 7deg ); 	    /* Opera */
+            }
+        </style>-->
+
+    </head>
+    <body ng-app="myApp" class="container center" style="margin-top:1cm">
+        <h1>圖片旋轉</h1><p/>
+        <div ng-controller="firstController">
+            
+            <input type="text" ng-model="rotDegree" class="text-center">&nbsp;&nbsp;
+            <input type="range" min="0" max="270" step="1" ng-model="rotDegree" style="width:300px"/><br/><br/>
+            <button class="btn btn-info" ng-click="doRotate(90); doFileReader();">順時針旋轉90度</button>
+
+            <br/><br/><br/><br/>
+
+            <img id="{{ item.id }}" ng-repeat="item in imgList track by $index" ng-class="{'myImage' : true}" 
+                 ng-style="{
+                             'transform':'rotate(' + rotDegree + 'deg)', 
+                     '-webkit-transform':'rotate(' + rotDegree + 'deg)', 
+                         '-ms-transform':'rotate(' + rotDegree + 'deg)'
+                 }" 
+                 ng-src="{{item.url}}" alt="{{item.name}}" />
+        </div>
+
+        <hr><hr><hr>
+
+        <div class="container">
+            <h1 style="font-family:微軟正黑體;">參考</h1>
+            <table class="table table-striped table-dark">
+                <tbody>
+                    <tr class="danger">
+                        <th scope="row">angular旋轉圖片</th>
+                        <td>https://stackoverflow.com/questions/22091733/dynamically-transform-in-css-using-ng-style</td>
+                    </tr>
+                    <tr class="danger">
+                        <th scope="row">旋轉圖片</th>
+                        <td>http://www.w3school.com.cn/example/css3/demo_css3_transform.html</td>
+                    </tr>
+                    <tr class="danger">
+                        <th scope="row">旋轉圖片</th>
+                        <td>http://www.w3school.com.cn/cssref/pr_transform.asp</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>
