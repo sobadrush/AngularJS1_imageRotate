@@ -53,6 +53,21 @@ myApp.controller('firstController', ['$scope', function($scope){
         return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
     }
 
+    // 若 <img src='...url... '> ，可用此function將圖檔載回並轉成base64
+    // 【參考】https://stackoverflow.com/questions/22172604/convert-image-url-to-base64
+    function toDataUrl(url, callback) {
+        var xhr = new XMLHttpRequest();
+        xhr.onload = function() {
+            var reader = new FileReader();
+            reader.onloadend = function() {
+                callback(reader.result);
+            }
+            reader.readAsDataURL(xhr.response);
+        };
+        xhr.open('GET', url , true);
+        xhr.responseType = 'blob';
+        xhr.send();
+    }
 }]);
 
 
