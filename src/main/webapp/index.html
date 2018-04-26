@@ -6,6 +6,10 @@
         <script src="./assest/js/index.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="./assest/css/myStyle.css">
+
+        <script src="http://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script><!-- 參考 https://github.com/desandro/imagesloaded/-->
+
         <!--<link rel="stylesheet" href="./assest/css/rangeBar.css">-->
        <!-- <style>
             .img_rotate {
@@ -24,7 +28,8 @@
             
             <input type="text" ng-model="rotDegree" class="text-center">&nbsp;&nbsp;
             <input type="range" min="0" max="270" step="1" ng-model="rotDegree" style="width:300px"/><br/><br/>
-            <button class="btn btn-info" ng-click="doRotate(90); doFileReader();">順時針旋轉90度</button>
+            <button class="btn btn-info" ng-click="doRotate(90);">順時針旋轉90度</button>
+            <button class="btn btn-info" ng-click="doFileReader();">上傳圖片</button>
 
             <br/><br/><br/><br/>
 
